@@ -7,36 +7,38 @@ window.onload = function(){
 //Tạo giao diện bàn cờ bằng button
 function creatBoard() { 
     let createButton = '';
+    let checkButton = document.getElementsByClassName("btnCaro");
     for (let i = 1; i <= 144; i++) {
         if (i % 12 == 0) {
             createButton += '<button onclick="caro(this.value)" class="btnCaro">&nbsp</button> <br> ';
         } else {
             createButton += '<button onclick="caro(this.value)" class="btnCaro">&nbsp</button>';
         }
+        
     }
     document.getElementById("cocaro").innerHTML = createButton;
 }
 
 
 //Tạo mảng chứa giá trị bàn cờ
+let arrCaro = new Array(12);
 function createArrayBoard() {
     let checkButton = document.getElementsByClassName("btnCaro");
     for (let i = 0; i < 144; i++) {
         checkButton[i].value = i + 1;
     }
     let countBtnCaro = 0;
-    let arrCaro = new Array(8);
-    for (let i = 0; i < 8; i++) {
+    
+    for (let i = 0; i < 12; i++) {
         let childArr = new Array();
-        for (let j = 0; j < 8; j++) {
+        for (let j = 0; j < 12; j++) {
             childArr.push(checkButton[countBtnCaro].innerHTML);
         }
         arrCaro[i] = childArr;
         countBtnCaro++;
     }
-    console.log(arrCaro);
+    console.log(arrCaro); 
 }
-
 
 //Gán giá trị x vào bàn cờ
 let rotate = 1;
@@ -74,7 +76,10 @@ function caro(evt) {
 
         //Check hàng dọc
         if ((arrCaro[n - 1][m] == 'x' && arrCaro[n - 2][m] == 'x') || (arrCaro[n + 1][m] == 'x' && arrCaro[n + 2][m] == 'x') || (arrCaro[n + 1][m] == 'x' && arrCaro[n - 1][m] == 'x')) {
-            alert('Cờ x win rồi');
+            let a = confirm("Cờ x win rồi, bấm OK để chơi ván mới");
+            if (a == true){
+                resetCaro();
+            }
         }
 
         //Check hàng ngang
@@ -93,6 +98,7 @@ function caro(evt) {
         }
     }
 
+    //Check o
     if (arrCaro[n][m] == 'o') {
 
         //Check hàng dọc
@@ -108,11 +114,13 @@ function caro(evt) {
         // Check hàng chéo xuyệt trái
         if ((arrCaro[n - 1][m - 1] == 'o' && arrCaro[n - 2][m - 2] == 'o') || (arrCaro[n + 1][m + 1] == 'o' && arrCaro[n + 2][m + 2] == 'o') || (arrCaro[n + 1][m + 1] == 'o' && arrCaro[n - 1][m - 1] == 'o')) {
             alert('Cờ o win rồi');
+
         }
 
         //Check hàng chéo xuyệt phải
         if ((arrCaro[n - 1][m + 1] == 'o' && arrCaro[n - 2][m + 2] == 'o') || (arrCaro[n + 1][m - 1] == 'o' && arrCaro[n + 2][m - 2] == 'o') || (arrCaro[n + 1][m - 1] == 'o' && arrCaro[n - 1][m + 1] == 'o')) {
             alert('Cờ o win rồi');
+
         }
     }
     console.log(n, m, arrCaro[n][m], evt);
@@ -122,32 +130,8 @@ function caro(evt) {
 
 //Reset lại bàn cờ
 function resetCaro() {
-    //Tạo giao diện bàn cờ bằng button
-    let createButton = '';
-
-    for (let i = 1; i <= 64; i++) {
-        if (i % 8 == 0) {
-            createButton += '<button onclick="caro(this.value)" class="btnCaro">&nbsp</button> <br> ';
-        } else {
-            createButton += '<button onclick="caro(this.value)" class="btnCaro">&nbsp</button>';
-        }
-    }
-    document.getElementById("cocaro").innerHTML = createButton;
-
-    let checkButton = document.getElementsByClassName("btnCaro");
-    for (let i = 0; i < 64; i++) {
-        checkButton[i].value = i + 1;
-    }
-    let countBtnCaro = 0;
-    let arrCaro = new Array(8);
-    for (let i = 0; i < 8; i++) {
-        let childArr = new Array();
-        for (let j = 0; j < 8; j++) {
-            checkButton[countBtnCaro].innerHTML = "&nbsp"
-            childArr.push(checkButton[countBtnCaro].innerHTML);
-        }
-        arrCaro[i] = childArr;
-        countBtnCaro++;
-    }
+    creatBoard();
+    createArrayBoard();
+    rotate = 1;
 }
 
