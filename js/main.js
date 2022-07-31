@@ -1,11 +1,11 @@
-window.onload = function(){
+window.onload = function () {
     creatBoard();
     createArrayBoard();
 }
 
 
 //Tạo giao diện bàn cờ bằng button
-function creatBoard() { 
+function creatBoard() {
     let createButton = '';
     let checkButton = document.getElementsByClassName("btnCaro");
     for (let i = 1; i <= 144; i++) {
@@ -14,7 +14,7 @@ function creatBoard() {
         } else {
             createButton += '<button onclick="caro(this.value)" class="btnCaro">&nbsp</button>';
         }
-        
+
     }
     document.getElementById("cocaro").innerHTML = createButton;
 }
@@ -28,7 +28,7 @@ function createArrayBoard() {
         checkButton[i].value = i + 1;
     }
     let countBtnCaro = 0;
-    
+
     for (let i = 0; i < 12; i++) {
         let childArr = new Array();
         for (let j = 0; j < 12; j++) {
@@ -37,7 +37,7 @@ function createArrayBoard() {
         arrCaro[i] = childArr;
         countBtnCaro++;
     }
-    console.log(arrCaro); 
+    console.log(arrCaro);
 }
 
 //Gán giá trị x vào bàn cờ
@@ -53,13 +53,18 @@ function caro(evt) {
         rotate = 1;
     }
 
-
+    //vị trí hàng của button
     let n = Math.floor(evt / 12);
+    if (evt % 12 == 0) {
+        n--;
+    }
+    //vị trí cột của button
     let m = (evt % 12) - 1;
     if (m == -1) {
-        m = 7;
+        m = 11;
     }
 
+    //Gán giá trị x,o vào mảng
     for (let i = 0; i < 12; i++) {
         if (i == n) {
             for (let j = 0; j < 12; j++) {
@@ -70,63 +75,28 @@ function caro(evt) {
 
         }
     }
-
-    //Check x
-    if (arrCaro[n][m] == 'x') {
-
-        //Check hàng dọc
-        if ((arrCaro[n - 1][m] == 'x' && arrCaro[n - 2][m] == 'x') || (arrCaro[n + 1][m] == 'x' && arrCaro[n + 2][m] == 'x') || (arrCaro[n + 1][m] == 'x' && arrCaro[n - 1][m] == 'x')) {
-            let a = confirm("Cờ x win rồi, bấm OK để chơi ván mới");
-            if (a == true){
-                resetCaro();
-            }
-        }
-
-        //Check hàng ngang
-        if ((arrCaro[n][m - 1] == 'x' && arrCaro[n][m - 2] == 'x') || (arrCaro[n][m + 1] == 'x' && arrCaro[n][m + 2] == 'x') || (arrCaro[n][m + 1] == 'x' && arrCaro[n][m - 1] == 'x')) {
-            alert('Cờ x win rồi');
-        }
-
-        // Check hàng chéo xuyệt trái
-        if ((arrCaro[n - 1][m - 1] == 'x' && arrCaro[n - 2][m - 2] == 'x') || (arrCaro[n + 1][m + 1] == 'x' && arrCaro[n + 2][m + 2] == 'x') || (arrCaro[n + 1][m + 1] == 'x' && arrCaro[n - 1][m - 1] == 'x')) {
-            alert('Cờ x win rồi');
-        }
-
-        //Check hàng chéo xuyệt phải
-        if ((arrCaro[n - 1][m + 1] == 'x' && arrCaro[n - 2][m + 2] == 'x') || (arrCaro[n + 1][m - 1] == 'x' && arrCaro[n + 2][m - 2] == 'x') || (arrCaro[n + 1][m - 1] == 'x' && arrCaro[n - 1][m + 1] == 'x')) {
-            alert('Cờ x win rồi');
-        }
-    }
-
-    //Check o
-    if (arrCaro[n][m] == 'o') {
-
-        //Check hàng dọc
-        if ((arrCaro[n - 1][m] == 'o' && arrCaro[n - 2][m] == 'o') || (arrCaro[n + 1][m] == 'o' && arrCaro[n + 2][m] == 'o') || (arrCaro[n + 1][m] == 'o' && arrCaro[n - 1][m] == 'o')) {
-            alert('Cờ o win rồi');
-        }
-
-        //Check hàng ngang
-        if ((arrCaro[n][m - 1] == 'o' && arrCaro[n][m - 2] == 'o') || (arrCaro[n][m + 1] == 'o' && arrCaro[n][m + 2] == 'o') || (arrCaro[n][m + 1] == 'o' && arrCaro[n][m - 1] == 'o')) {
-            alert('Cờ o win rồi');
-        }
-
-        // Check hàng chéo xuyệt trái
-        if ((arrCaro[n - 1][m - 1] == 'o' && arrCaro[n - 2][m - 2] == 'o') || (arrCaro[n + 1][m + 1] == 'o' && arrCaro[n + 2][m + 2] == 'o') || (arrCaro[n + 1][m + 1] == 'o' && arrCaro[n - 1][m - 1] == 'o')) {
-            alert('Cờ o win rồi');
-
-        }
-
-        //Check hàng chéo xuyệt phải
-        if ((arrCaro[n - 1][m + 1] == 'o' && arrCaro[n - 2][m + 2] == 'o') || (arrCaro[n + 1][m - 1] == 'o' && arrCaro[n + 2][m - 2] == 'o') || (arrCaro[n + 1][m - 1] == 'o' && arrCaro[n - 1][m + 1] == 'o')) {
-            alert('Cờ o win rồi');
-
-        }
-    }
     console.log(n, m, arrCaro[n][m], evt);
+    if (checkWin(n, m, arrCaro[n][m])) {
+        alert('win rồi nè');
+    };
+
+
 }
 
-
+function checkWin(n, m, value) {
+    let pointWin = 0;
+    for (let i = -4; i <= 8; i++) {
+        //tránh check dữ liệu ngoài phạm vi
+        if (n + i >= 0 && n + i < arrCaro.length) {
+            if (arrCaro[n + i][m] == value) {
+                pointWin++;
+            }
+            else pointWin = 0;
+        }
+        if(pointWin==5) return true;
+    }
+    return false;
+}
 
 //Reset lại bàn cờ
 function resetCaro() {

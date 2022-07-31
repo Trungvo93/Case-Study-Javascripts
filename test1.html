@@ -6,152 +6,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
 </head>
 <style>
-    h1 {
-        text-align: center;
+    #loadbar {
+        width: 200px;
+        height: 30px;
+        background-clip: padding-box;
+        border: 1px solid #434bbb;
+        border-radius: 20px;
+        display: block;
+        margin: 0px auto;
     }
 
-    #cocaro {
-        text-align: center;
-        padding: 20px;
+    #main {
+        display: none;
     }
 
-    .btnCaro {
-        width: 50px;
-        height: 50px;
-    }
-
-    #resetCaro {
-        padding: 10px;
-        text-align: center;
-    }
-
-    #resetCaro button {
-        width: 100px;
+    #startGame {
+        display: block;
+        margin: 20px auto 0px auto;
     }
 </style>
 
+
 <body>
-
-
-    <h1>Game cờ-ca-rô
-        <p>Cờ x đi trước</p>
-    </h1>
-
-    <div id="cocaro">
-
+    <div id="main">asdasdasd sa s</div>
+    <div id="loadingGame">
+        <canvas id="loadbar"></canvas>
+        <button id="startGame" onclick="startGame()" disabled>Chơi game</button>
     </div>
-
-    <div id="resetCaro">
-        <button onclick="resetCaro()">Game mới</button>
-    </div>
-
-
-
 
 </body>
-<script>
-    window.onload = function () {
-        creatBoard();
-        createArrayBoard();
-    }
-
-
-    //Tạo giao diện bàn cờ bằng button
-    function creatBoard() {
-        let createButton = '';
-        let checkButton = document.getElementsByClassName("btnCaro");
-        for (let i = 1; i <= 144; i++) {
-            if (i % 12 == 0) {
-                createButton += '<button onclick="caro(this.value)" class="btnCaro">&nbsp</button> <br> ';
-            } else {
-                createButton += '<button onclick="caro(this.value)" class="btnCaro">&nbsp</button>';
-            }
-
-        }
-        document.getElementById("cocaro").innerHTML = createButton;
-    }
-
-
-    //Tạo mảng chứa giá trị bàn cờ
-    let arrCaro = new Array(12);
-    function createArrayBoard() {
-        let checkButton = document.getElementsByClassName("btnCaro");
-        for (let i = 0; i < 144; i++) {
-            checkButton[i].value = i + 1;
-        }
-        let countBtnCaro = 0;
-
-        for (let i = 0; i < 12; i++) {
-            let childArr = new Array();
-            for (let j = 0; j < 12; j++) {
-                childArr.push(checkButton[countBtnCaro].innerHTML);
-            }
-            arrCaro[i] = childArr;
-            countBtnCaro++;
-        }
-    }
-
-    //Gán giá trị x vào bàn cờ
-    let rotate = 1;
-    function caro(evt) {
-        let checkButton = document.getElementsByClassName("btnCaro");
-        if (rotate == 1 && checkButton[evt - 1].innerHTML != 'x' && checkButton[evt - 1].innerHTML != 'o') {
-            checkButton[evt - 1].innerHTML = 'x';
-            rotate = 2;
-        }
-        else if (rotate == 2 && checkButton[evt - 1].innerHTML != 'x' && checkButton[evt - 1].innerHTML != 'o') {
-            checkButton[evt - 1].innerHTML = 'o';
-            rotate = 1;
-        }
-
-
-        let n = Math.floor(evt / 12);
-        let m = (evt % 12) - 1;
-        if (m == -1) {
-            m = 7;
-        }
-
-        for (let i = 0; i < 12; i++) {
-            if (i == n) {
-                for (let j = 0; j < 12; j++) {
-                    if (j == m) {
-                        arrCaro[n][m] = checkButton[evt - 1].innerHTML;
-                    }
-                }
-
-            }
-        }
-
-        console.log(n, m, arrCaro[n][m], evt);
-    }
-
-    //Mảng tính điểm
-    let arrScore = new Array(12);
-    function scoreArray(){
-
-        //Reset mảng về điểm 0
-        for(let i = 0; i< 12; i++){
-            let childArr = new Array();
-            for(let j = 0; j<12; j++){
-                childArr.push(0);
-            }
-            arrScore[i] = childArr;
-        }
-
-
-    }
-    
-
-
-    //Reset lại bàn cờ
-    function resetCaro() {
-        creatBoard();
-        createArrayBoard();
-        rotate = 1;
-    }
-
-</script>
+<script src="js/loading.js"></script>
 
 </html>
