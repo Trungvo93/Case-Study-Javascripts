@@ -1,22 +1,23 @@
-let canvas = document.getElementById("loadbar");
-let ctx = canvas.getContext("2d");
-let loadingImg = new Image();
-var x = 30;
-loadingImg.src = 'img/gradient-loading.jpg';
-loadingImg.onload = function () {
-  ctx.drawImage(loadingImg, 0, 0, x, canvas.height);
+//Chạy minion
+let margin_Left = (window.innerWidth / 2) - 275;
+document.getElementById("loadMinion").style.marginLeft = margin_Left + 'px';
+window.onload = function () {
+    document.getElementById("loadMinion").style.transform = 'translateX(475px)';
+    document.getElementById("loadMinion").style.transition = '10s linear';
 }
-let randomTime = Math.random()*40;
-let load = setInterval(function () {
-  x++;
-  ctx.drawImage(loadingImg, 0, 0, x, canvas.height);
-  if (x == canvas.width - 10) {
-    clearInterval(load);
-    document.getElementById("startGame").disabled = false;
-  } 
-}, randomTime);
 
-function startGame(){
-  document.getElementById("main").style.display = "block";
-  document.getElementById("loadingGame").style.display = "none";
-}
+// Chạy thanh loading bar
+let canvas = document.getElementById("loadingCanvas");
+let ctx = canvas.getContext('2d');
+let loadBar = new Image();
+loadBar.src = 'img/gradient-loading.jpg';
+let widthLoadBar = 0;
+let load = setInterval(function(){
+    ctx.drawImage(loadBar,0,0, widthLoadBar, canvas.height);
+    widthLoadBar++;
+    //canvas.width+50 để full thanh bar dc đẹp
+    if(widthLoadBar == canvas.width+50){
+        clearInterval(load);
+    }
+},34)
+

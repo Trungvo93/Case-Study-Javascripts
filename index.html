@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Cờ ca-ro</title>
+    <title>Cờ ca-rô</title>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <h1>Game cờ-ca-rô
-        <p>Cờ x đi trước</p>
-    </h1>
-    
-    <div id="cocaro">
-
-    </div>
-
-    <div id="resetCaro">
-        <button onclick="resetCaro()">Game mới</button>
-    </div>
+    <section id="loadingPage">
+        <h1>
+            <img src="img/logo.png" alt="">
+            <span> Cờ caro Việt</span>
+        </h1>
+        <img src="img/minion_loading.gif" alt="" id="loadMinion">
+        <canvas id="loadingCanvas"></canvas>
+    </section>
 </body>
+<script src="js/loading.js"></script>
 
-<!-- Để js dưới mới chạy dc -->
-<script src="js/main.js"></script>
 </html>
