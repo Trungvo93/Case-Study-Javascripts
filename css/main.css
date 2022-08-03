@@ -24,8 +24,96 @@
 }
 
 #loadMinion {
-  display: block;
+  position: relative;
   width: 50px;
+}
+
+#load1 {
+  text-align: center;
+}
+
+#btnPlayGame {
+  font-family: "Lobster", cursive;
+  font-size: 20px;
+  color: #1c3158;
+  display: block;
+  margin: 40px auto;
+  padding: 5px 20px;
+  border-radius: 50px;
+  transition: 0.5s;
+  display: none;
+}
+
+#btnPlayGame:hover {
+  background-color: #1c3158;
+  color: white;
+}
+
+#broad {
+  display: none;
+}
+
+#header {
+  font-family: "Lobster", cursive;
+}
+#header h1 {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #365899;
+  text-align: center;
+  font-size: 50px;
+}
+#header h1 img {
+  padding-right: 10px;
+  height: 50px;
+}
+
+#cocaro {
+  text-align: center;
+  padding: 20px;
+}
+
+.btnCaro {
+  font-family: "Lobster", cursive;
+  font-size: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #365899;
+  width: 50px;
+  height: 50px;
+  border: 2px groove;
+}
+
+.btnCaro:hover {
+  background-color: rgb(184, 184, 183);
+}
+
+.btnCaro:disabled {
+  background-color: rgb(184, 184, 183);
+}
+
+#resetCaro {
+  padding: 10px;
+  text-align: center;
+}
+
+#resetCaro button {
+  font-family: "Lobster", cursive;
+  font-size: 20px;
+  color: #1c3158;
+  display: block;
+  margin: 40px auto;
+  padding: 5px 20px;
+  border-radius: 50px;
+  transition: 0.5s;
+}
+
+#resetCaro button:hover {
+  background-color: #1c3158;
+  color: white;
 }
 
 /*# sourceMappingURL=main.css.map */

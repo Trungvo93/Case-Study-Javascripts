@@ -50,6 +50,7 @@ function caro(evt) {
     }
     else if (rotate == 2 && checkButton[evt - 1].innerHTML != 'x' && checkButton[evt - 1].innerHTML != 'o') {
         checkButton[evt - 1].innerHTML = 'o';
+        checkButton[evt - 1].style.color = "red";
         rotate = 1;
     }
 
@@ -76,16 +77,27 @@ function caro(evt) {
         }
     }
     console.log(n, m, arrCaro[n][m], evt);
-    if (checkWin(n, m, arrCaro[n][m])) {
-        alert('win rồi nè');
+    if (checkWinDoc(n, m, arrCaro[n][m])) {
+        alert('Cờ ' + arrCaro[n][m] + ' thắng');
+        disableBoard();
     };
-
-
+    if (checkWinNgang(n, m, arrCaro[n][m])) {
+        alert('Cờ ' + arrCaro[n][m] + ' thắng');
+        disableBoard();
+    };
+    if (checkWinCheo1(n, m, arrCaro[n][m])) {
+        alert('Cờ ' + arrCaro[n][m] + ' thắng');
+        disableBoard();
+    };
+    if (checkWinCheo2(n, m, arrCaro[n][m])) {
+        alert('Cờ ' + arrCaro[n][m] + ' thắng');
+        disableBoard();
+    };
 }
 
-function checkWin(n, m, value) {
+function checkWinDoc(n, m, value) {
     let pointWin = 0;
-    for (let i = -4; i <= 8; i++) {
+    for (let i = -4; i <= 4; i++) {
         //tránh check dữ liệu ngoài phạm vi
         if (n + i >= 0 && n + i < arrCaro.length) {
             if (arrCaro[n + i][m] == value) {
@@ -93,7 +105,50 @@ function checkWin(n, m, value) {
             }
             else pointWin = 0;
         }
-        if(pointWin==5) return true;
+        if (pointWin == 5) return true;
+    }
+    return false;
+}
+function checkWinNgang(n, m, value) {
+    let pointWin = 0;
+    for (let i = -4; i <= 4; i++) {
+        //tránh check dữ liệu ngoài phạm vi
+        if (m + i >= 0 && m + i < arrCaro.length) {
+            if (arrCaro[n][m + i] == value) {
+                pointWin++;
+            }
+            else pointWin = 0;
+        }
+        if (pointWin == 5) return true;
+    }
+    return false;
+}
+
+function checkWinCheo1(n, m, value) {
+    let pointWin = 0;
+    for (let i = -4; i <= 4; i++) {
+        //tránh check dữ liệu ngoài phạm vi
+        if (n + i >= 0 && n + i < arrCaro.length && m + i >= 0 && m + i < arrCaro.length) {
+            if (arrCaro[n + i][m + i] == value) {
+                pointWin++;
+            }
+            else pointWin = 0;
+        }
+        if (pointWin == 5) return true;
+    }
+    return false;
+}
+
+function checkWinCheo2(n, m, value) {
+    let pointWin = 0;
+    for (let i = -4; i <= 4; i++) {
+        if (n + i >= 0 && n + i < arrCaro.length && m - i >= 0 && m - i < arrCaro.length) {
+            if (arrCaro[n + i][m - i] == value) {
+                pointWin++;
+            }
+            else pointWin = 0;
+        }
+        if (pointWin == 5) return true;
     }
     return false;
 }
@@ -105,3 +160,9 @@ function resetCaro() {
     rotate = 1;
 }
 
+function disableBoard(){
+    let checkButton = document.getElementsByClassName("btnCaro");
+    for (let i = 1; i <= 144; i++) {
+        checkButton[i-1].disabled = "true";
+    }
+}
