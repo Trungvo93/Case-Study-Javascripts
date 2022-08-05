@@ -4,3 +4,4 @@ Game cờ ca-ro
 - Bấm Chơi game thì sẽ ra bàn cờ game
 - Game này chơi 2 người, 5 dấu thì win
 - Ai win thì sẽ thông báo cờ nào win, bàn cờ sẽ bị disable k cho click, muốn chơi lại thì bấm button Chơi lại
+- Tắt mở nhạc nền
