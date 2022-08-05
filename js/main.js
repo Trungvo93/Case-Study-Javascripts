@@ -80,16 +80,13 @@ function caro(evt) {
     if (checkWinDoc(n, m, arrCaro[n][m])) {
         alert('Cờ ' + arrCaro[n][m] + ' thắng');
         disableBoard();
-    };
-    if (checkWinNgang(n, m, arrCaro[n][m])) {
+    } else if (checkWinNgang(n, m, arrCaro[n][m])) {
         alert('Cờ ' + arrCaro[n][m] + ' thắng');
         disableBoard();
-    };
-    if (checkWinCheo1(n, m, arrCaro[n][m])) {
+    } else if (checkWinCheo1(n, m, arrCaro[n][m])) {
         alert('Cờ ' + arrCaro[n][m] + ' thắng');
         disableBoard();
-    };
-    if (checkWinCheo2(n, m, arrCaro[n][m])) {
+    }else if (checkWinCheo2(n, m, arrCaro[n][m])) {
         alert('Cờ ' + arrCaro[n][m] + ' thắng');
         disableBoard();
     };

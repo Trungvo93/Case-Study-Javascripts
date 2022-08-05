@@ -1,0 +1,6 @@
+Game cờ ca-ro
+- Chạy thanh Loading có minion với thanh bar chạy
+- Chạy xong thì hiện nút button Chơi Game
+- Bấm Chơi game thì sẽ ra bàn cờ game
+- Game này chơi 2 người, 5 dấu thì win
+- Ai win thì sẽ thông báo cờ nào win, bàn cờ sẽ bị disable k cho click, muốn chơi lại thì bấm button Chơi lại

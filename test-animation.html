@@ -6,7 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    .music{
+        width: 60px;
+        height: 40px;
+        background-color: aqua;
+        
+    }
+    .musicBar1{
+        display: inline-block;
+        height: 100%;
+        width: 10px;
+        background-color: black;
+        animation: delay 0.8s infinite ease-in-out;
+    }
+
+    @keyframes delay{
+        0%, 40%, 100%{
+            transform: scaleY(0.05);
+        }
+        20%{
+            transform: scaleY(1.0);
+        }
+    }
+</style>
 <body>
-    test animation
+    <div class="music">
+        <div class="musicBar1"></div>
+    </div>
 </body>
 </html>
