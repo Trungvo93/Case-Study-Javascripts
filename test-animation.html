@@ -9,7 +9,6 @@
 </head>
 <style>
     .music {
-        display: block;
         width: 60px;
         height: 40px;
         background-color: aqua;
@@ -121,13 +120,12 @@
             document.getElementById("stopMusic").style.display = "block";
             document.getElementById("music").style.display = "none";
 
-
         }
         else {
             document.getElementById("onoffMusic").play();
             statusPlaying = true;
-            // document.getElementById("stopMusic").style.display = "none";
-            // document.getElementById("music").style.display = "block";
+            document.getElementById("stopMusic").style.display = "none";
+            document.getElementById("music").style.display = "block";
         }
 
     }
