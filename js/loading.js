@@ -30,7 +30,12 @@ function startLoadPage() {
         document.getElementById("btnPlayGame").style.display = "block";
     }
 }
-startLoadPage();
+
+setTimeout(() => {
+    document.getElementById("load1").style.display ="block";
+    startLoadPage();
+}, 2000);
+
 
 
 function showGame() {

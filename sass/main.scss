@@ -1,3 +1,8 @@
+body{
+    background-image:url("../img/background-1.jpg");
+}
+
+
 #loadingPage {
     font-family: 'Lobster', cursive;
     h1 {
@@ -27,10 +32,12 @@
     width: 50px;
 }
 #load1{
+    display: none;
     text-align: center;
 }
 
 #btnPlayGame{
+    cursor: pointer;
     font-family: 'Lobster', cursive;
     font-size: 20px;
     color: #1c3158;
@@ -51,8 +58,10 @@
 .playMusic{
     display: flex;
     justify-content: center;
+
 }
 #music {
+    cursor: pointer;
     width: 48px;
     height: 40px;
     /* background-color: aqua; */
@@ -116,6 +125,7 @@
 }
 
 #stopMusic {
+    cursor: pointer;
     display: none;
     width: 48px;
     height: 40px;
@@ -177,6 +187,7 @@
   }
   
   .btnCaro {
+    cursor: grab;
     font-family: 'Lobster', cursive;
     font-size: 40px;
     display: inline-flex;
@@ -186,6 +197,9 @@
     width: 50px;
     height: 50px;
     border:2px groove;
+  }
+  .btnCaro:focus{
+    cursor: grabbing;
   }
   .btnCaro:hover{
     background-color: rgb(184, 184, 183);
@@ -200,6 +214,7 @@
   }
   
   #resetCaro button {
+    cursor: pointer;
     font-family: 'Lobster', cursive;
     font-size: 20px;
     color: #1c3158;

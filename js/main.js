@@ -157,6 +157,7 @@ function resetCaro() {
     rotate = 1;
 }
 
+//Khóa bàn cờ khi win
 function disableBoard(){
     let checkButton = document.getElementsByClassName("btnCaro");
     for (let i = 1; i <= 144; i++) {
