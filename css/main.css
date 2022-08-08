@@ -1,5 +1,6 @@
 body {
   background-image: url("../img/background-1.jpg");
+  font-family: "Lobster", cursive;
 }
 
 #loadingPage {
@@ -158,6 +159,30 @@ body {
 
 .stopMusicBar6 {
   background-color: #ed1b72;
+}
+
+.scoreBroad {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+}
+
+.scoreCat {
+  display: flex;
+  justify-content: end;
+  align-items: baseline;
+}
+.scoreCat img {
+  width: 50px;
+}
+
+.scoreDog {
+  display: flex;
+  justify-content: start;
+  align-items: baseline;
+}
+.scoreDog img {
+  width: 50px;
 }
 
 #broad {

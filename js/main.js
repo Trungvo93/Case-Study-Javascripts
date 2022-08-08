@@ -17,6 +17,9 @@ function creatBoard() {
 
     }
     document.getElementById("cocaro").innerHTML = createButton;
+    document.getElementById("scoreCat").innerHTML = scoreX + ' Win';
+    document.getElementById("scoreDog").innerHTML = scoreO + ' Win';
+
 }
 
 
@@ -78,20 +81,48 @@ function caro(evt) {
     }
     console.log(n, m, arrCaro[n][m], evt);
     if (checkWinDoc(n, m, arrCaro[n][m])) {
-        alert('Cờ ' + arrCaro[n][m] + ' thắng');
+        displayScore(arrCaro[n][m]);
         disableBoard();
     } else if (checkWinNgang(n, m, arrCaro[n][m])) {
-        alert('Cờ ' + arrCaro[n][m] + ' thắng');
+        displayScore(arrCaro[n][m]);
         disableBoard();
     } else if (checkWinCheo1(n, m, arrCaro[n][m])) {
-        alert('Cờ ' + arrCaro[n][m] + ' thắng');
+        displayScore(arrCaro[n][m]);
         disableBoard();
-    }else if (checkWinCheo2(n, m, arrCaro[n][m])) {
-        alert('Cờ ' + arrCaro[n][m] + ' thắng');
+    } else if (checkWinCheo2(n, m, arrCaro[n][m])) {
+        displayScore(arrCaro[n][m]);
         disableBoard();
     };
 }
 
+//Hiện điểm số win
+let scoreX = 0;
+let scoreO = 0;
+function displayScore(value) {
+    if (value == 'x') {
+        scoreX++;
+        if (scoreX < 3) {
+            document.getElementById("scoreCat").innerHTML = scoreX + ' Win';
+            alert('Cờ ' + value + ' thắng lần thứ ' + scoreX);
+        }
+        else {
+            document.getElementById("scoreCat").innerHTML = scoreX + ' Win';
+            alert('Cờ ' + value + ' thắng chung cuộc');
+        }
+    }
+
+    if(value == 'o'){
+        scoreO++;
+        if (scoreO < 3) {
+            document.getElementById("scoreDog").innerHTML = scoreO + ' Win';
+            alert('Cờ ' + value + ' thắng lần thứ ' + scoreO);
+        }
+        else {
+            document.getElementById("scoreDog").innerHTML = scoreO + ' Win';
+            alert('Cờ ' + value + ' thắng chung cuộc');
+        }
+    }
+}
 function checkWinDoc(n, m, value) {
     let pointWin = 0;
     for (let i = -4; i <= 4; i++) {
@@ -152,15 +183,18 @@ function checkWinCheo2(n, m, value) {
 
 //Reset lại bàn cờ
 function resetCaro() {
+    if(scoreO == 3 || scoreX == 3){
+        scoreX = scoreO = 0;
+    }
     creatBoard();
     createArrayBoard();
     rotate = 1;
 }
 
 //Khóa bàn cờ khi win
-function disableBoard(){
+function disableBoard() {
     let checkButton = document.getElementsByClassName("btnCaro");
     for (let i = 1; i <= 144; i++) {
-        checkButton[i-1].disabled = "true";
+        checkButton[i - 1].disabled = "true";
     }
 }

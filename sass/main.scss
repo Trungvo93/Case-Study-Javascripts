@@ -1,5 +1,6 @@
 body{
     background-image:url("../img/background-1.jpg");
+    font-family: 'Lobster', cursive;
 }
 
 
@@ -156,6 +157,31 @@ body{
 }
 .stopMusicBar6{
     background-color: #ed1b72;
+}
+
+
+
+//Bảng điểm - ScoreBroad
+.scoreBroad{
+    display: flex;
+    justify-content:center;
+    gap: 100px;
+}
+.scoreCat{
+    display: flex;
+    justify-content:end;
+    align-items:baseline;
+    img{
+        width: 50px;
+    }
+}
+.scoreDog{
+    display: flex;
+    justify-content:start;
+    align-items: baseline;
+    img{
+        width: 50px;
+    }
 }
 
 
