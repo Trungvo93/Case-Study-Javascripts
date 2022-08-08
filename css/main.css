@@ -49,6 +49,109 @@
   color: white;
 }
 
+.playMusic {
+  display: flex;
+  justify-content: center;
+}
+
+#music {
+  width: 48px;
+  height: 40px;
+  /* background-color: aqua; */
+}
+
+#music div {
+  display: inline-block;
+  height: 100%;
+  width: 8px;
+  float: left;
+  margin: auto;
+  border-radius: 50px;
+}
+
+.musicBar1 {
+  animation: delay 0.7s infinite ease-in-out;
+  background-color: #754fa0;
+}
+
+.musicBar2 {
+  animation: delay 0.7s infinite ease-in-out;
+  background-color: #09b7bf;
+  animation-delay: 0.2s;
+}
+
+.musicBar3 {
+  animation: delay 0.7s infinite ease-in-out;
+  background-color: #90d36b;
+  animation-delay: 0.3s;
+}
+
+.musicBar4 {
+  animation: delay 0.7s infinite ease-in-out;
+  background-color: #f2d40d;
+  animation-delay: 0.4s;
+}
+
+.musicBar5 {
+  animation: delay 0.7s infinite ease-in-out;
+  background-color: #fcb12b;
+  animation-delay: 0.5s;
+}
+
+.musicBar6 {
+  animation: delay 0.7s infinite ease-in-out;
+  background-color: #ed1b72;
+  animation-delay: 0.6s;
+}
+
+@keyframes delay {
+  0%, 50%, 100% {
+    transform: scaleY(0.1);
+  }
+  20% {
+    transform: scaleY(1);
+  }
+}
+#stopMusic {
+  display: none;
+  width: 48px;
+  height: 40px;
+  /* background-color: aqua; */
+}
+
+#stopMusic div {
+  display: inline-block;
+  position: relative;
+  height: 4px;
+  width: 8px;
+  top: 18px;
+  float: left;
+}
+
+.stopMusicBar1 {
+  background-color: #754fa0;
+}
+
+.stopMusicBar2 {
+  background-color: #09b7bf;
+}
+
+.stopMusicBar3 {
+  background-color: #90d36b;
+}
+
+.stopMusicBar4 {
+  background-color: #f2d40d;
+}
+
+.stopMusicBar5 {
+  background-color: #fcb12b;
+}
+
+.stopMusicBar6 {
+  background-color: #ed1b72;
+}
+
 #broad {
   display: none;
 }

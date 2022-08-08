@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <audio controls autoplay id="music">
+        <source src="media/1k-noi-dau.mp3" type="audio/mpeg">
+    </audio>
+    <button onclick="abc()">asdas</button>
+</body>
+<script>
+    window.onload = function() {
+        abc();
+    }
+    function abc() {
+        let x = document.getElementById("music").play();
+    }
+    abc();
+</script>
+
+</html>

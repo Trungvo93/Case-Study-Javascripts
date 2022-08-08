@@ -32,7 +32,9 @@ function startLoadPage() {
 }
 startLoadPage();
 
+
 function showGame() {
     document.getElementById("broad").style.display = "block";
     document.getElementById("loadingPage").style.display = "none";
+    playFirstTime();
 }
