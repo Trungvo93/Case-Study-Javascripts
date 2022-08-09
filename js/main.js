@@ -173,6 +173,15 @@ function checkWinCheo2(n, m, value) {
 
 //Reset lại bàn cờ
 function resetCaro() {
+    scoreX = scoreO = 0;
+    document.getElementById("scoreCat").innerHTML = scoreX + ' Win';
+    document.getElementById("scoreDog").innerHTML = scoreO + ' Win';
+    creatBoard();
+    createArrayBoard();
+    rotate = 1;
+}
+
+function nextGame(){
     if (scoreO == 3 || scoreX == 3) {
         scoreX = scoreO = 0;
     }
@@ -180,7 +189,6 @@ function resetCaro() {
     createArrayBoard();
     rotate = 1;
 }
-
 //Khóa bàn cờ khi win
 function disableBoard() {
     let checkButton = document.getElementsByClassName("btnCaro");

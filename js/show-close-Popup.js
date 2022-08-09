@@ -1,6 +1,6 @@
 function closePopup() {
     document.getElementById("popup").style.display = "none";
-    resetCaro();
+    nextGame();
 }
 
 function showPopup(value) {
