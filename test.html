@@ -50,19 +50,21 @@
         display: flex;
         align-items: center;
     }
-    .playAgain button{
-        padding: 10px 20px;
+    .playAgain__Btn{
+        padding: 10px 30px;
         border-radius: 999px;
+        border: 0;
+    }
+    .playAgain__Btn:hover{
+        cursor: pointer;
+    }
+    .playAgain__Btn:focus{
+        cursor:grabbing;
     }
 </style>
 
 <body>
     <div id="main">
-        <div>adasdasdasds</div>
-        <div>adasdasdasds</div>
-        <div>adasdasdasds</div>
-        <div>adasdasdasds</div>
-        <button>asdasd</button>
         <div id="popup">
             <div class="popupWin">
                 <div class="popupWin_info">
@@ -70,7 +72,7 @@
                     <span>Cờ X win rồi</span>
                 </div>
                 <div class="playAgain">
-                    <button onclick="closePopup()">Chiến tiếp</button>
+                    <button onclick="closePopup()" class="playAgain__Btn">Chiến tiếp</button>
                 </div>
             </div>
         </div>

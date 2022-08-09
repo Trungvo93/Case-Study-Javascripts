@@ -82,15 +82,19 @@ function caro(evt) {
     console.log(n, m, arrCaro[n][m], evt);
     if (checkWinDoc(n, m, arrCaro[n][m])) {
         displayScore(arrCaro[n][m]);
+        showPopup(arrCaro[n][m]);
         disableBoard();
     } else if (checkWinNgang(n, m, arrCaro[n][m])) {
         displayScore(arrCaro[n][m]);
+        showPopup(arrCaro[n][m]);
         disableBoard();
     } else if (checkWinCheo1(n, m, arrCaro[n][m])) {
         displayScore(arrCaro[n][m]);
+        showPopup(arrCaro[n][m]);
         disableBoard();
     } else if (checkWinCheo2(n, m, arrCaro[n][m])) {
         displayScore(arrCaro[n][m]);
+        showPopup(arrCaro[n][m]);
         disableBoard();
     };
 }
@@ -101,26 +105,12 @@ let scoreO = 0;
 function displayScore(value) {
     if (value == 'x') {
         scoreX++;
-        if (scoreX < 3) {
-            document.getElementById("scoreCat").innerHTML = scoreX + ' Win';
-            alert('Cờ ' + value + ' thắng lần thứ ' + scoreX);
-        }
-        else {
-            document.getElementById("scoreCat").innerHTML = scoreX + ' Win';
-            alert('Cờ ' + value + ' thắng chung cuộc');
-        }
+        document.getElementById("scoreCat").innerHTML = scoreX + ' Win';
     }
 
-    if(value == 'o'){
+    if (value == 'o') {
         scoreO++;
-        if (scoreO < 3) {
-            document.getElementById("scoreDog").innerHTML = scoreO + ' Win';
-            alert('Cờ ' + value + ' thắng lần thứ ' + scoreO);
-        }
-        else {
-            document.getElementById("scoreDog").innerHTML = scoreO + ' Win';
-            alert('Cờ ' + value + ' thắng chung cuộc');
-        }
+        document.getElementById("scoreDog").innerHTML = scoreO + ' Win';
     }
 }
 function checkWinDoc(n, m, value) {
@@ -183,7 +173,7 @@ function checkWinCheo2(n, m, value) {
 
 //Reset lại bàn cờ
 function resetCaro() {
-    if(scoreO == 3 || scoreX == 3){
+    if (scoreO == 3 || scoreX == 3) {
         scoreX = scoreO = 0;
     }
     creatBoard();

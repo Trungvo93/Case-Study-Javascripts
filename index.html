@@ -75,9 +75,23 @@
         <div id="resetCaro">
             <button onclick="resetCaro()">Game mới</button>
         </div>
+
+        <!-- Popup win game -->
+        <div id="popup">
+            <div class="popupWin">
+                <div class="popupWin_info">
+                    <img src="img/ezgif.com-gif-maker.gif" alt="">
+                    <span id="showTeamWin"></span>
+                </div>
+                <div class="playAgain">
+                    <button onclick="closePopup()" class="playAgain__Btn">Chiến tiếp</button>
+                </div>
+            </div>
+        </div>
     </main>
 </body>
 <script src="js/loading.js"></script>
 <script src="js/playmusic.js"></script>
 <script src="js/main.js"></script>
+<script src="js/show-close-Popup.js"></script>
 </html>
