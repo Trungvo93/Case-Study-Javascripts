@@ -7,21 +7,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    #main div {
+        text-align: center;
+    }
+
+    #popup {
+        background-color: rgba(68, 66, 66, 0.05);
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .popupWin {
+        width: 300px;
+        height: 200px;
+        background-color: rgb(36, 71, 102);
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+    }
+
+    .popupWin_info {
+        display: flex;
+        align-items: center;
+        color: white;
+    }
+
+    .popupWin_info img {
+        width: 150px;
+    }
+
+    .playAgain {
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+    .playAgain button{
+        padding: 10px 20px;
+        border-radius: 999px;
+    }
+</style>
 
 <body>
-    <audio controls autoplay id="music">
-        <source src="media/1k-noi-dau.mp3" type="audio/mpeg">
-    </audio>
-    <button onclick="abc()">asdas</button>
+    <div id="main">
+        <div>adasdasdasds</div>
+        <div>adasdasdasds</div>
+        <div>adasdasdasds</div>
+        <div>adasdasdasds</div>
+        <button>asdasd</button>
+        <div id="popup">
+            <div class="popupWin">
+                <div class="popupWin_info">
+                    <img src="img/ezgif.com-gif-maker.gif" alt="">
+                    <span>Cờ X win rồi</span>
+                </div>
+                <div class="playAgain">
+                    <button onclick="closePopup()">Chiến tiếp</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 <script>
-    window.onload = function() {
-        abc();
-    }
-    function abc() {
-        let x = document.getElementById("music").play();
-    }
-    abc();
+ function closePopup(){
+    document.getElementById("popup").style.display = "none";
+ }
 </script>
 
 </html>
