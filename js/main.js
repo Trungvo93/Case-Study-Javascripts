@@ -69,16 +69,16 @@ function caro(evt) {
     }
 
     //Gán giá trị x,o vào mảng
-    for (let i = 0; i < 12; i++) {
-        if (i == n) {
-            for (let j = 0; j < 12; j++) {
-                if (j == m) {
+    // for (let i = 0; i < 12; i++) {
+    //     if (i == n) {
+    //         for (let j = 0; j < 12; j++) {
+    //             if (j == m) {
                     arrCaro[n][m] = checkButton[evt - 1].innerHTML;
-                }
-            }
+    //             }
+    //         }
 
-        }
-    }
+    //     }
+    // }
     console.log(n, m, arrCaro[n][m], evt);
     if (checkWinDoc(n, m, arrCaro[n][m])) {
         displayScore(arrCaro[n][m]);
